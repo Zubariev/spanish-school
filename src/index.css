@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pearl-bg {
+  background-color: rgba(135, 154, 140, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(135, 154, 140, 0.2);
+}
+
+.wrap {
+  border-right: 0.08em solid #666;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #666 }
+}
