@@ -15,12 +15,12 @@ export function Steps() {
     {
       icon: <FileCheck2Icon className="w-8 h-8 text-azure" />,
       title: "Укладаємо договір про співпрацю",
-      description: "Оформимо нащі стосунки офіційно"
+      description: "Оформимо наші стосунки офіційно"
     },
     {
       icon: <CreditCard className="w-8 h-8 text-azure" />,
       title: "Оплати перший місяць занять",
-      description: "У зручний для тебе валюті"
+      description: "У зручній для тебе валюті"
     },
     {
       icon: <FileCheck className="w-8 h-8 text-azure" />,

@@ -9,7 +9,7 @@ export function Features() {
     },
     {
       icon: <Sparkles className="w-8 h-8 text-azure" />,
-      title: " комунікативна та креативна методики",
+      title: "Комунікативна та креативна методики",
       desc: "говорити + практикувати в ігровому формати"
     },
     {
