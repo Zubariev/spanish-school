@@ -98,13 +98,13 @@ export function ContactForm() {
             </div>
 
             <div>
-              <label className="block mb-2 text-sage">Які дні тижня підійдуть для занять? (вибери всі зручні варіанти)</label>
+              <label className="block mb-2 text-sage">Які дні тижня підійдуть для за��ять? (вибери всі зручні варіанти)</label>
               <div className="space-y-2">
                 <label className="flex items-center">
                   <input
                     type="checkbox"
-                    value="monday"
-                    checked={formData.days.includes('monday')}
+                    value="Пон-Сер"
+                    checked={formData.days.includes('Пон-Сер')}
                     onChange={(e) => {
                       const value = e.target.value;
                       setFormData(prev => ({
@@ -121,8 +121,8 @@ export function ContactForm() {
                 <label className="flex items-center">
                   <input
                     type="checkbox"
-                    value="wednesday"
-                    checked={formData.days.includes('wednesday')}
+                    value="Сер-Пт"
+                    checked={formData.days.includes('Сер-Пт')}
                     onChange={(e) => {
                       const value = e.target.value;
                       setFormData(prev => ({
@@ -139,8 +139,8 @@ export function ContactForm() {
                 <label className="flex items-center">
                   <input
                     type="checkbox"
-                    value="friday"
-                    checked={formData.days.includes('friday')}
+                    value="Пон-Пт"
+                    checked={formData.days.includes('Пон-Пт')}
                     onChange={(e) => {
                       const value = e.target.value;
                       setFormData(prev => ({
