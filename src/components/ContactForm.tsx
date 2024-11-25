@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ export function ContactForm() {
     contactMethod: '',
     contactDetails: ''
   });
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,6 +46,8 @@ export function ContactForm() {
         contactMethod: '',
         contactDetails: ''
       });
+
+      navigate('/thank-you');
     } catch (error) {
       console.error('Error:', error);
       alert('Виникла помилка. Спробуйте ще раз.');
@@ -98,7 +103,7 @@ export function ContactForm() {
             </div>
 
             <div>
-              <label className="block mb-2 text-sage">Які дні тижня підійдуть для за��ять? (вибери всі зручні варіанти)</label>
+              <label className="block mb-2 text-sage">Які дні тижня підійдуть для занять? (вибери всі зручні варіанти)</label>
               <div className="space-y-2">
                 <label className="flex items-center">
                   <input
@@ -263,8 +268,18 @@ export function ContactForm() {
           </div>
 
           <button
+            id="contact-form-submit"
             type="submit"
             className="w-full px-6 py-3 mt-8 transition-colors rounded-full bg-azure text-pearl hover:bg-sage"
+            onClick={() => {
+              // Google Ads Conversion Tracking
+              if (window.gtag) {
+                window.gtag('event', 'form_submit', {
+                  'event_category': 'engagement',
+                  'event_label': 'contact_form'
+                });
+              }
+            }}
           >
             Надіслати заявку
           </button>

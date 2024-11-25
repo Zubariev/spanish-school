@@ -8,6 +8,7 @@ import { Diplomas } from './components/Diplomas';
 import { Testimonials } from './components/Testimonials';
 import { ContactForm } from './components/ContactForm';
 import { Contact } from './components/Contact';
+import { ThankYou } from './components/ThankYou';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +39,7 @@ function App() {
       <Testimonials />
       <ContactForm />
       <Contact />
+      <ThankYou />
     </div>
   );
 }
