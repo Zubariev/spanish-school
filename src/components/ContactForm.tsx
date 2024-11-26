@@ -1,5 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// Add type definition for gtag
+declare global {
+  interface Window {
+    gtag: any;
+    gtagSendEvent: (url: string) => boolean;
+  }
+}
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,6 +22,25 @@ export function ContactForm() {
   });
 
   const navigate = useNavigate();
+
+  // Add the gtagSendEvent helper function
+  useEffect(() => {
+    window.gtagSendEvent = function(url: string) {
+      const callback = function () {
+        if (typeof url === 'string') {
+          window.location.href = url;
+        }
+      };
+      
+      if (window.gtag) {
+        window.gtag('event', 'conversion_event_subscribe_paid', {
+          'event_callback': callback,
+          'event_timeout': 2000
+        });
+      }
+      return false;
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,10 +74,15 @@ export function ContactForm() {
         contactDetails: ''
       });
 
-      navigate('/thank-you');
+      // After successful submission, use gtagSendEvent
+      if (window.gtagSendEvent) {
+        window.gtagSendEvent('/thank-you');
+      } else {
+        // Fallback if gtag isn't available
+        navigate('/thank-you');
+      }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Виникла помилка. Спробуйте ще раз.');
+      console.error('Error submitting form:', error);
     }
   };
 
@@ -272,9 +304,8 @@ export function ContactForm() {
             type="submit"
             className="w-full px-6 py-3 mt-8 transition-colors rounded-full bg-azure text-pearl hover:bg-sage"
             onClick={() => {
-              // Google Ads Conversion Tracking
               if (window.gtag) {
-                window.gtag('event', 'form_submit', {
+                window.gtag('event', 'form_submit_click', {
                   'event_category': 'engagement',
                   'event_label': 'contact_form'
                 });
