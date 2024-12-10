@@ -13,11 +13,6 @@ export function Steps() {
       description: "Познайомимось поближче та обговоримо твої цілі"
     },
     {
-      icon: <FileCheck2Icon className="w-8 h-8 text-azure" />,
-      title: "Укладаємо договір про співпрацю",
-      description: "Оформимо наші стосунки офіційно"
-    },
-    {
       icon: <CreditCard className="w-8 h-8 text-azure" />,
       title: "Оплати перший місяць занять",
       description: "У зручній для тебе валюті"
