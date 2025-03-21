@@ -2,6 +2,10 @@ import { useState } from 'react';
 import diploma from '../../images/diploma.jpg';
 import certificate1 from '../../images/certificate1.png';
 import certificate2 from '../../images/certificate2.png';
+import certificate3 from '../../images/diploma3.jpg';
+import certificate4 from '../../images/diploma4.jpg';
+import certificate5 from '../../images/diploma5.jpg';
+import certificate6 from '../../images/diploma6.jpg';
 
 export function Diplomas() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -21,6 +25,26 @@ export function Diplomas() {
       title: "Курс групового навчання",
       image: certificate2,
       year: "2024"
+    },
+    {
+      title: "Учасниця конференції",
+      image: certificate3,
+      year: "2024"
+    },
+    {
+      title: "Курс креативного навчання",
+      image: certificate4,
+      year: "2024"
+    },
+    {
+      title: "Учасниця конференції",
+      image: certificate5,
+      year: "2025"
+    },
+    {
+      title: "Учасниця воркшопу",
+      image: certificate6,
+      year: "2025"
     }
   ];
 
